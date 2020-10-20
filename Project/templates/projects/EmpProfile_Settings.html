@@ -1,0 +1,40 @@
+{% extends 'projects/EmpDashboard.html' %}
+{% load static %}
+{% block content %}
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+</style>
+
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-5">
+			<div class="card text-white bg-dark mb-3">
+				<a class="btn btn-warning" href="{% url 'empprofile' user.id %}"> &#8592; Back to Profile</a>
+				<hr>
+				<h3 style="text-align: center">Account Settings</h3>
+				<hr>
+				<img class="rounded mx-auto d-block" src="{{request.user.employee.Profile_Pic.url}}">
+				<button class="file btn btn-info"><input type="file" name="Change Photo"></button>
+				<hr>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <table class="table table-white table text-white">
+                        <tr>
+							<td>
+                                {{form}}
+                            </td>
+						</tr>
+					</table>
+				</form>
+				<a class="btn btn-success" href="{% url 'empprofile' user.id %}">Update Info</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

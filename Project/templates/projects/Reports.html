@@ -1,0 +1,36 @@
+{% extends 'projects/Main.html' %}
+{% include 'projects/Navbar.html' %}
+{% block content %}
+<br>
+<div class="container" align="center">
+    <div class="row">
+        <div class="col-md-6.5">
+            <h5><font>ATTENDANCE REPORT:</font></h5>
+            <hr>
+            <div class="card text-dark bg-white mb-3">
+                <table class="table table-bordered table-dark">
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Check-In Time</th>
+                        <th>Check-Out Time</th>
+                        <th>Hours Utilized</th>
+                        <th>Attendance</th>
+                        <th>Date-Time Created</th>
+                    </tr>
+
+                    {% for i in Attendance_Report %}
+                        <tr>
+                            <td>{{i.Employee_Name}}</td>
+                            <td>{{i.Time_In}}</td>
+                            <td>{{i.Time_Out}}</td>
+                            <td>{{i.FullHours_Utilized}}</td>
+                            <td>{{i.Mark_Attendance}}</td>
+                            <td>{{i.Date_created}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

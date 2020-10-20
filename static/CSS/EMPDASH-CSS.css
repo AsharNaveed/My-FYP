@@ -1,0 +1,78 @@
+body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: Grey !important;
+        }
+        .hello-msg{
+            font-size: 18px;
+            color: #fff;
+            margin-right: 20px;
+        }
+    /*Css for chat*/
+        .chat {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .chat li {
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dotted #B3A9A9;
+        }
+
+        .chat li.right .chat-body {
+            margin-right: 60px;
+        }
+
+        .chat li .chat-body p {
+            margin: 0;
+            color: Grey;
+        }
+    /*end css for chat*/
+    /*css for pagination*/
+        .page {
+          display: none;
+        }
+        .page-active {
+          display: block;
+        }
+
+        /*Example of custom colors for pagination*/
+        .page-link {
+            color: #000000;
+            background-color: #80DEEA;
+            border: 1px solid #84FFFF;
+        }
+        .page-item.disabled .page-link {
+            color: #6c757d;
+            background-color: #84FFFF;
+            border-color: #dee2e6;
+        }
+        .page-item.active .page-link {
+            color: #fff;
+            background-color: #00B8D4;
+            border-color: #00ACC1;
+        }
+        .page-link:hover {
+            color: #0056b3;
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+        }
+        .page-link:focus {
+            box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+        }
+        .prev .page-link {
+            background-color: White;
+        }
+        .first .page-link {
+            background-color: White;
+        }
+        .next .page-link {
+            background-color: White;
+        }
+        .last .page-link {
+            background-color: White;
+        }
+    /*end css for pagination*/

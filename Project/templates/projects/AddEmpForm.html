@@ -1,0 +1,31 @@
+{% extends 'projects/Main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2.3">
+            <div class="card text-dark bg-white mb-3">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <table class="table table-white table text-dark">
+                        <tr>
+                            <td>
+                                {{form}}
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                </form>
+                <button class="btn btn-success" type="submit"><a class="text-white" href="{% url 'user' %}">Submit</a></button>
+                <button class="btn btn-warning" type="submit"><a class="text-white" href="{% url 'user' %}">Cancel</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

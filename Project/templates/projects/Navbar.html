@@ -1,0 +1,35 @@
+{% load static %}
+
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <img src="{% static 'Images/logo final test.png' %}">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link nav text-white" href="{% url 'home' %}">Dashboard</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link nav text-white" href="{% url 'user' %}">EMS</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link nav text-white" href="{% url 'attendance' %}">AMS</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link nav text-white" href="{% url 'payroll' %}">PMS</a>
+      </li>
+    </ul>
+  </div>
+  <span class="hello-msg">Hello, {{request.user}}</span>
+  <span><a class="hello-msg btn btn-dark" href="{% url 'logout_user' %}">Logout</a></span>
+
+</nav>

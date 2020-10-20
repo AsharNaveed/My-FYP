@@ -1,0 +1,28 @@
+{% extends 'projects/EmpDashboard.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2.3">
+            <div class="card text-dark bg-white mb-3">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <table class="table table-white table text-dark">
+                        <tr>
+                            <td>
+                                {{form}}
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <button class="btn btn-success" type="submit" name="submit">Submit</button>
+                    <button class="btn btn-warning btn text-white" type="submit"><a href="{% url 'emp_profile' %}">Cancel</a></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

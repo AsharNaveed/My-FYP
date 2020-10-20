@@ -1,0 +1,142 @@
+{% extends 'projects/Main.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+
+<link href="{% static 'CSS/styles.css' %}" rel="stylesheet">
+
+<br>
+<div class="jumbotron jumbotron-fluid bg-light">
+    <h1 align="center">
+        <font color="Black">Welcome to Admin Panel</font>
+    </h1>
+</div>
+<br>
+<br>
+<div id="layoutSidenav_content">
+    <div class="container-fluid">
+        <div class="jumbotron jumbotron-fluid bg-light">
+            <h3 align="center">
+                <font color="Black">Attendance Management & Payroll Management System</font>
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-white bg-primary mb-3">
+                        <div class="card-header">
+                            <h5 class="card-title">Total Employees</h5>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{total_employee}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-white bg-warning mb-3">
+                        <div class="card-header">
+                            <h5 class="card-title">Total Attendances</h5>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{total_attendance}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-white bg-success mb-3">
+                        <div class="card-header">
+                            <h5 class="card-title">Total Payrolls</h5>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{total_payroll}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="col-md">
+                    <div class="card text-center text-white bg-danger mb-3">
+                        <div class="card-header">
+                            <h5 class="card-title">Total Leaves</h5>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{{total_leave}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header"><i class="fas fa-table mr-1"></i>Employees Detail</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark text-white" id="dataTable" width="100%" cellspacing="0">
+                        <tr>
+                            <th>Employee Name</th>
+                            <th>Employee Designation</th>
+                            <th>Employee Department</th>
+                            <th>Employee Phone No</th>
+                            <th>Employee Salary</th>
+                            <th>Date-Time Created</th>
+                        </tr>
+                        {% for e in employees %}
+                        <tr>
+                            <td>{{e.Full_Name}}</td>
+                            <td>{{e.Designation}}</td>
+                            <td>{{e.Department}}</td>
+                            <td>{{e.Phone_No}}</td>
+                            <td>{{e.Salary}}</td>
+                            <td>{{e.Date_created}}</td>
+                        </tr>
+                        {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header"><i class="fas fa-table mr-1"></i>Attendance Detail</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark text-white" width="100%" cellspacing="0">
+                        <tr>
+                            <th>Employee Name</th>
+                            <th>Check-In Time</th>
+                            <th>Check-Out Time</th>
+                            <th>Full Hours Utilized</th>
+                            <th>Marked Attendance</th>
+                            <th>Date-Time Created</th>
+                        </tr>
+                        {% for a in attendances %}
+                        <tr>
+                            <td>{{a.Employee_Name}}</td>
+                            <td>{{a.Time_In}}</td>
+                            <td>{{a.Time_Out}}</td>
+                            <td>{{a.FullHours_Utilized}}</td>
+                            <td>{{a.Mark_Attendance}}</td>
+                            <td>{{a.Date_created}}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Chart Working -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+{% endblock %}
+

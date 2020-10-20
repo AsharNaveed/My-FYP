@@ -1,0 +1,144 @@
+{% extends 'projects/EmpDashboard.html' %}
+
+{% load static %}
+
+<br>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{% block content %}
+
+{% include 'projects/LSoA.html' %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="container emp-profile">
+            <div class="card card-body">
+                <div class="card-header bg-light">
+                    <h6><i class="fas fa-table mr-1"></i>My Information:</h6>
+                </div>
+                <hr>
+                <div class="card card-bordered bg-dark text-white">
+                    <form method="post">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <br>
+                                <div class="profile-img">
+                                    <img class="rounded mx-auto d-block"
+                                         src="{{request.user.employee.Profile_Pic.url}}" alt=""/>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="profile-head">
+                                    <h5>
+                                        {{request.user.employee.Full_Name}}
+                                    </h5>
+                                    <h5>
+                                        {{request.user.employee.Designation}}
+                                    </h5>
+                                    <h5>----------------------------------------------------------------</h5>
+                                    <div class="tab-content profile-tab" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6>User Id</h6>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6>{{request.user.employee.employee_user_id}}</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6>Email</h6>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6>{{request.user.employee.Email_Address}}</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6>CNIC:</h6>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6>{{request.user.employee.CNIC}}</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6>Phone No:</h6>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6>{{request.user.employee.Phone_No}}</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6>Salary</h6>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6>{{request.user.employee.Salary}}</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6>Experience</h6>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6>{{request.user.employee.Experience}}</h6>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h6>Education</h6>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h6>{{request.user.employee.Education}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="card card-body">
+                <div class="card-header bg-light">
+                    <h6><i class="fas fa-table mr-1"></i>My Attendances:</h6>
+                </div>
+                <hr>
+                <div class="card card-bordered bg-dark">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark text-white" width="100%" cellspacing="0">
+                                <tr>
+                                    <th>Employee Name</th>
+                                    <th>Checked-In</th>
+                                    <th>Checked-Out</th>
+                                    <th>Work Status</th>
+                                    <th>Full Hours</th>
+                                    <th>Attendance</th>
+                                    <th>Date-Time Created</th>
+                                </tr>
+
+                                {% for a in attendance %}
+                                <tr>
+                                    <td>{{a.Employee_Name}}</td>
+                                    <td>{{a.Check_In}}</td>
+                                    <td>{{a.Check_Out}}</td>
+                                    <td>{{a.Status}}</td>
+                                    <td>{{a.FullHours_Utilized}}</td>
+                                    <td>{{a.Mark_Attendance}}</td>
+                                    <td>{{a.Date_created}}</td>
+                                </tr>
+                                {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

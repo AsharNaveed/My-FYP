@@ -1,0 +1,71 @@
+{% extends 'projects/Main.html' %}
+{% include 'projects/Navbar.html' %}
+{% block content %}
+<br>
+<div class="jumbotron jumbotron-fluid bg-light">
+    <h1 align="center">
+        <font color="Black">Employee Management Page</font>
+    </h1>
+</div>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="card mb-4">
+            <div class="card-header"><i class="fas fa-table mr-1"></i>Employees:</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark text-white" id="dataTable" width="100%" cellspacing="0">
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Employee Name</th>
+                            <th>Date-Time Created</th>
+                           <!-- <th>Update/Delete</th> -->
+                           <th><a class="btn btn-success" href="{% url 'add_empform' %}">Create Employee</a></th>
+                        </tr>
+                        {% for emp in employees %}
+                        <tr>
+                            <td>{{emp.id}}</td>
+                            <td>{{emp.Full_Name}}</td>
+                            <td>{{emp.Date_created}}</td>
+                            <td><a class="btn btn-info" href="{% url 'update_empform' emp.id %}">Update</a>
+                            <a class="btn btn-danger" href="{% url 'delete_empform' emp.id %}">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+         </div>
+        <br>
+        <div class="row">
+            <div class="card mb-4">
+                <div class="card-header"><i class="fas fa-table mr-1"></i>
+                    <button class="btn btn-warning text-white">View Employees Information:</button></div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark text-white" width="100%" cellspacing="0">
+                            <tr>
+                                <th>Employee Name</th>
+                                <th>Employee Phone</th>
+                                <th>Employee Email</th>
+                                <th>Employee CNIC</th>
+                                <th>Date-Time</th>
+                            </tr>
+
+                            {% for emp in employees %}
+                            <tr>
+                                <td>{{emp.Full_Name}}</td>
+                                <td>{{emp.Phone_No}}</td>
+                                <td>{{emp.Email_Address}}</td>
+                                <td>{{emp.CNIC}}</td>
+                                <td>{{emp.Date_created}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
